@@ -7,7 +7,9 @@ pincel.fillRect(0, 0, 800, 500);
 var raio = 10;
 var x;
 var y;
-var pontos = 0;
+var pontos = 1;
+var velocidade = 2000;
+var interval;
 
 function desenhaCirculo(x, y, raio, cor){
 	pincel.fillStyle = cor;
@@ -37,19 +39,26 @@ function movimentoAlvo(){
 	desenhaAlvo(xAleatorio, yAleatorio);
 }
 
-setInterval(movimentoAlvo, 1000);
-
 function cliquei(event){
 	var xClicado = event.pageX - tela.offsetLeft;
 	var yClicado = event.pageY - tela.offsetTop;
 
 	if(xClicado > xAleatorio - raio && xClicado < xAleatorio + raio){
 		if(yClicado > yAleatorio - raio && yClicado < yAleatorio + raio){
-			alert("OPA");
+			alert("Acertou! Você tem: " + pontos++);
+
+			console.log(velocidade);
+
+			velocidade = velocidade - 100;
+
+			clearInterval(interval);
+			interval = setInterval(movimentoAlvo, velocidade);
 		}
 	}
+}
 
-	console.log("X: " + xClicado + "Y: " + yClicado);
+function inicia(){
+	interval = setInterval(movimentoAlvo, velocidade);
 }
 
 tela.onclick = cliquei;
