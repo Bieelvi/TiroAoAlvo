@@ -1,13 +1,16 @@
 var tela = document.querySelector('canvas');
 var pincel = tela.getContext('2d');
 
-pincel.fillStyle = 'white';
-pincel.fillRect(0, 0, 800, 500);
+var telaX = 900;
+var telaY = 500;
+
+pincel.fillStyle = 'lightgray';
+pincel.fillRect(0, 0, telaX, telaY);
 
 var raio = 10;
 var x;
 var y;
-var pontos = 1;
+var pontos = 0;
 var velocidade = 2000;
 var interval;
 
@@ -29,13 +32,15 @@ function sorteaNumero(maximo){
 }
 
 function limpaTela(){
-	pincel.clearRect(0, 0, 800, 500);
+	pincel.clearRect(0, 0, telaX, telaY);
+	pincel.fillStyle = 'lightgray';
+	pincel.fillRect(0, 0, telaX, telaY);
 }
 
 function movimentoAlvo(){
 	limpaTela();
-	xAleatorio = sorteaNumero(800);
-	yAleatorio = sorteaNumero(500);
+	xAleatorio = sorteaNumero(telaX);
+	yAleatorio = sorteaNumero(telaY);
 	desenhaAlvo(xAleatorio, yAleatorio);
 }
 
@@ -45,9 +50,8 @@ function cliquei(event){
 
 	if(xClicado > xAleatorio - raio && xClicado < xAleatorio + raio){
 		if(yClicado > yAleatorio - raio && yClicado < yAleatorio + raio){
-			alert("Acertou! Você tem: " + pontos++);
-
-			console.log(velocidade);
+			pontos = pontos + 100;
+			alert("Acertou! Você tem: " + pontos);
 
 			velocidade = velocidade - 100;
 

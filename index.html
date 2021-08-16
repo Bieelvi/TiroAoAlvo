@@ -6,9 +6,38 @@
 </head>
 <body>
 
+<style type="text/css">
+	.divInf{
+		background-color: lightgreen;
+		padding: 10px;
+		text-align:  center;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	.styleCanvas{
+		margin: 10px 20%;
+	}
+</style>
+
 <div style="text-align: center;"><h1>TIRO AO ALVO</h1></div>
 
-<canvas width="800" height="500"></canvas>
+<div style="display: flex; justify-content: space-around;">
+	<div class="divInf">
+		<label>Pontos: </label>
+		<span>0</span>
+	</div>
+	<div class="divInf">
+		<label>Velocidade: </label>
+		<span>2000</span>
+	</div>
+	<div class="divInf">
+		<label>Maior Pontuação: </label>
+		<span>20000</span>
+	</div>
+</div>
+
+<canvas class="styleCanvas" width="800" height="500"></canvas>
 
 <button onclick="inicia()">Iniciar</button>
 
