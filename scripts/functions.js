@@ -1,18 +1,25 @@
 var tela = document.querySelector('canvas');
 var pincel = tela.getContext('2d');
 
-var telaX = 900;
+var telaX;
 var telaY = 500;
-
-pincel.fillStyle = 'lightgray';
-pincel.fillRect(0, 0, telaX, telaY);
-
 var raio = 10;
 var x;
 var y;
 var pontos = 0;
 var velocidade = 2000;
 var interval;
+
+function calculaTamanhoMonitor(){
+    telaX = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+    var canvas = document.getElementById('canvas');
+    canvas.width = telaX;
+    canvas.height = telaY;
+}
+
+pincel.fillStyle = 'lightgray';
+pincel.fillRect(0, 0, telaX, telaY);
 
 function desenhaCirculo(x, y, raio, cor){
 	pincel.fillStyle = cor;
@@ -50,10 +57,8 @@ function cliquei(event){
 
 	if(xClicado > xAleatorio - raio && xClicado < xAleatorio + raio){
 		if(yClicado > yAleatorio - raio && yClicado < yAleatorio + raio){
-			pontos = pontos + 100;
-			alert("Acertou! Você tem: " + pontos);
-
-			velocidade = velocidade - 100;
+			document.getElementById('pontos').value = pontos = pontos + 100;
+			document.getElementById('velocidade').value = velocidade = velocidade - 100;
 
 			clearInterval(interval);
 			interval = setInterval(movimentoAlvo, velocidade);
@@ -63,6 +68,7 @@ function cliquei(event){
 
 function inicia(){
 	interval = setInterval(movimentoAlvo, velocidade);
+	calculaTamanhoMonitor();
 }
 
 tela.onclick = cliquei;

@@ -3,6 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Tiro ao Alvo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 
@@ -13,10 +15,16 @@
 		text-align:  center;
 		font-size: 18px;
 		font-weight: bold;
+		border-radius: 10px;
 	}
 
 	.styleCanvas{
-		margin: 10px 20%;
+		margin: 30px 0px;
+	}
+
+	.divInf > input{
+		width: 75px;
+		height: 20px
 	}
 </style>
 
@@ -25,21 +33,21 @@
 <div style="display: flex; justify-content: space-around;">
 	<div class="divInf">
 		<label>Pontos: </label>
-		<span>0</span>
+		<input type="text" id="pontos">
 	</div>
 	<div class="divInf">
 		<label>Velocidade: </label>
-		<span>2000</span>
+		<input type="text" id="velocidade">
 	</div>
 	<div class="divInf">
 		<label>Maior Pontuação: </label>
-		<span>20000</span>
+		<input type="text" id="mPontos">
 	</div>
 </div>
 
-<canvas class="styleCanvas" width="800" height="500"></canvas>
+<canvas id="canvas" class="styleCanvas"></canvas>
 
-<button onclick="inicia()">Iniciar</button>
+<button class="divInf" onclick="inicia()">Iniciar</button>
 
 </body>
 <script type="text/javascript" src="scripts/functions.js"></script>
