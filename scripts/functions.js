@@ -1,18 +1,31 @@
 var tela = document.querySelector('canvas');
+var iniciaBtn = document.getElementById('iniciaBtn');
 var pincel = tela.getContext('2d');
 
 var telaX;
-var telaY = 500;
-var raio = 10;
+var telaY;
+var raio;
 var x;
 var y;
-var pontos = 0;
-var velocidade = 2000;
-var interval = null;
-var xAleatorio = 1;
-var yAleatorio = 1;
-var nome = null;
-var duploClick = true;
+var pontos;
+var velocidade;
+var xAleatorio;
+var yAleatorio;
+var nome;
+var duploClick;
+var mPontos = 0;
+var interval;
+
+function zeraVariaveis(){
+	telaY = 500;
+	raio = 10;
+	pontos = 0;
+	velocidade = 2000;
+	xAleatorio = 1;
+	yAleatorio = 1;
+	duploClick = true;
+	nome = prompt("Digite seu nome: ");
+}
 
 function calculaTamanhoMonitor(){
     telaX = (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -20,6 +33,10 @@ function calculaTamanhoMonitor(){
     var canvas = document.getElementById('canvas');
     canvas.width = telaX;
     canvas.height = telaY;
+}
+
+function paraInterval(intervalVariavel) {
+  	clearInterval(intervalVariavel);
 }
 
 pincel.fillStyle = 'lightgray';
@@ -56,12 +73,12 @@ function movimentoAlvo(){
 	desenhaAlvo(xAleatorio, yAleatorio);
 }
 
-function verificaDyploClick(){
-	if(duploClick == true){
+function verificaDuploClick(){
+	if(duploClick === true){
 		pontos = pontos + 100;
 		velocidade = velocidade - 100;
 
-		clearInterval(interval);
+		paraInterval(interval);
 
 		interval = setInterval(movimentoAlvo, velocidade);
 
@@ -72,26 +89,37 @@ function verificaDyploClick(){
 function verificaPosicao(xClicado, yClicado){
 	if(xClicado > xAleatorio - raio && xClicado < xAleatorio + raio){
 		if(yClicado > yAleatorio - raio && yClicado < yAleatorio + raio){
-			verificaDyploClick();
+			return true;
 		}
 	}
+
+	return false;
 }
 
 function cliquei(event){
 	var xClicado = event.pageX - tela.offsetLeft;
 	var yClicado = event.pageY - tela.offsetTop;
 
-	verificaPosicao(xClicado, yClicado);
+	if(verificaPosicao(xClicado, yClicado) === true){
+		verificaDuploClick();			
+	}
+
+	if(pontos >= mPontos){
+		mPontos = pontos;
+		document.getElementById('mPontos').value = nome + " - " + pontos; 
+	}
 
 	document.getElementById('pontos').value = pontos;
 	document.getElementById('velocidade').value = velocidade;
-	document.getElementById('mPontos').value = nome + " - " + pontos; 
 }
 
 function inicia(){
-	interval = setInterval(movimentoAlvo, velocidade);
-	nome = prompt("Digite seu nome: ");
+	zeraVariaveis();
 	calculaTamanhoMonitor();
+	paraInterval(interval);
+	movimentoAlvo();
 }
+
+iniciaBtn.onclick = inicia;
 
 tela.onclick = cliquei;
