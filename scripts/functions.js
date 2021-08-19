@@ -29,6 +29,9 @@ function zeraVariaveis(){
 
 function calculaTamanhoMonitor(){
     telaX = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    testeTelaY = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+
+    telaY = testeTelaY - (100 * 2);
 
     var canvas = document.getElementById('canvas');
     canvas.width = telaX;
