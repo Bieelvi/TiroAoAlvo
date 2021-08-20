@@ -1,0 +1,55 @@
+header {
+	background-color: lightgray;
+}
+
+.caixa-center {
+	position: relative;
+	width: 1200px;
+	padding: 30px;
+	margin: 0 auto;
+}
+
+nav {
+	position: absolute;
+	top: 150px;
+	right: 0;
+}
+
+nav li {
+	display: inline;
+	margin-left: 15px;
+}
+
+nav a {
+	text-transform: uppercase;
+	color:  black;
+	font-weight: bold;
+	font-size: 25px;
+	text-decoration: none;
+}
+
+.logo {
+	width: 250px;
+	height: 250px;
+}
+
+main {
+	padding: 270px;
+}
+
+section {
+	width: 30%;
+	margin: auto auto;
+}
+
+section h1 {
+	font-size: 50px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+footer {
+	background-color: lightgray;
+	height: 200px;
+}

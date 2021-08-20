@@ -1,0 +1,22 @@
+.divPrincipal {
+	display: flex; 
+	justify-content: space-around;
+}
+
+.divInf {
+	background-color: lightgreen;
+	padding: 10px;
+	text-align:  center;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 10px;
+}
+
+.divInf > input {
+	width: 75px;
+	height: 20px
+}
+
+.styleCanvas {
+	margin: 30px 0px;
+}
