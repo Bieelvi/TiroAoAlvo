@@ -1,3 +1,7 @@
+h1 {
+	text-align: center;
+}
+
 .divPrincipal {
 	display: flex; 
 	justify-content: space-around;
@@ -12,7 +16,7 @@
 	border-radius: 10px;
 }
 
-.divInf > input {
+.divInf input {
 	width: 75px;
 	height: 20px
 }
