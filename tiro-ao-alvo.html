@@ -4,11 +4,26 @@
 	<meta charset="utf-8">
 	<title>Tiro ao Alvo</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/styleTiroAlvo.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/styleTiroAlvo.css">	
+	<link rel="stylesheet" href="css/styleIndex.css">
 </head>
 <body>
+
 	<header>
-		<h1>TIRO AO ALVO</h1>
+		<div class="caixa-center">
+			<h2><img class="logo" src="img/logo.png"></h2>
+			<nav>
+				<ul>
+					<li><a href="index.html">Início</a></li>
+					<li><a href="tiro-ao-alvo.html">Jogar</a></li>
+					<li><a href="sobre.html">Sobre</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main class="mainTiroAlvo" onload="inicia()">		
 		<div class="divPrincipal">
 			<div class="divInf">
 				<label>Pontos: </label>
@@ -30,10 +45,8 @@
 				<input type="text" id="mVelocidade">
 			</div>
 		</div>
-	</header>
 
-	<main>	
-		<canvas id="canvas" class="styleCanvas"></canvas>
+		<canvas id="canvas" height="500" class="styleCanvas"></canvas>
 	</main>
 </body>		
 <script type="text/javascript" src="scripts/functions.js"></script>

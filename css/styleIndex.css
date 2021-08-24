@@ -36,12 +36,17 @@ nav a:hover {
 }
 
 main {
-	padding: 270px;
+	width: 100%;
+	height: 500px;
+	box-sizing: border-box;
+}
+
+.mainTiroAlvo {
+	margin-top: 50px;
 }
 
 section {
-	width: 30%;
-	margin: auto auto;
+	padding: 225px;
 }
 
 section h1 {
@@ -63,6 +68,6 @@ section a:hover {
 }
 
 footer {
-	background-color: lightgray;
-	height: 200px;
+	background-image: url(../img/bg.jpg);
+	height: 300px;
 }
